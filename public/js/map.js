@@ -14,6 +14,7 @@ var geolocateControl = new mapboxgl.GeolocateControl(
 
 var pos = null,
     intervalId = null,
+    locationId = null,
     currentCoordinates = {
         x: null,
         y: null
@@ -35,6 +36,7 @@ function showPosition(position) {
     //   x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
     console.log(position.coords.latitude)
     console.log(position.coords.longitude)
+    console.log(position)
     coords.innerHTML = position.coords.latitude + ", " + position.coords.longitude
     currentCoordinates.x = position.coords.latitude;
     currentCoordinates.y = position.coords.longitude;
@@ -67,13 +69,13 @@ function track() {
 map.on('load', () => {
     if (navigator.geolocation) {
         geolocateControl.trigger();
-        navigator.geolocation.watchPosition(showPosition, (error) => {
+        locationId = navigator.geolocation.watchPosition(showPosition, (error) => {
             console.error(error);
             coords.innerHTML = "null, null. Permission denied for Location Sharing"
         }, {
             enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0
+            timeout: 6000,
+            maximumAge: 4000
         });
     } else {
         coords.innerHTML = "null, null. Geolocation is not supported by this browser."
@@ -99,19 +101,19 @@ map.on('load', () => {
             }
         }
     });
-    map.addLayer({
-        'id': 'route',
-        'type': 'line',
-        'source': 'route',
-        'layout': {
-            'line-join': 'round',
-            'line-cap': 'round'
-        },
-        'paint': {
-            'line-color': '#888',
-            'line-width': 8
-        }
-    });
+    // map.addLayer({
+    //     'id': 'route',
+    //     'type': 'line',
+    //     'source': 'route',
+    //     'layout': {
+    //         'line-join': 'round',
+    //         'line-cap': 'round'
+    //     },
+    //     'paint': {
+    //         'line-color': '#888',
+    //         'line-width': 8
+    //     }
+    // });
 });
 
 function trackAPI(x, y) {
