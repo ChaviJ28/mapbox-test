@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/d3cb2d71-8806-488a-8a14-f8165420b016/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/chavi-fyp",
+    "appService.deploySubpath": "."
+}
