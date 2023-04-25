@@ -4,6 +4,7 @@ var session = require('express-session');
 var bodyparser = require('body-parser');
 var pug = require('pug');
 var methodOverride = require('method-override');
+require('dotenv').config();
 
 app.use(bodyparser.json())
     .use(bodyparser.urlencoded({
