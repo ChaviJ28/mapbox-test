@@ -78,7 +78,7 @@ app.get('/record', (req, res) => {
 })
 
 
-var port = 80;
+var port = 8080;
 app.listen(port, () => {
     console.log('listening on port ' + port)
 })
