@@ -122,7 +122,7 @@ function trackAPI(x, y) {
         data: {
             ip: "",
             userDevice: "640c571979dac6b0a1c3b488",
-            busRoute: "640c5f3cd87b070d2981cf45",
+            busRoute: "64555e2059021f0078a7d9e2",
             x: x.toString(),
             y: y.toString()
         },
